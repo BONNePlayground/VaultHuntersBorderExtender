@@ -74,19 +74,19 @@ public class Configuration
 
     public Tuple<Integer, Integer> getCompleteIncrement()
     {
-        return new Tuple<>(this.completeIncrementMin.get(), this.completeIncrementMax.get() + 1);
+        return new Tuple<>(this.completeIncrementMin.get(), this.completeIncrementMax.get());
     }
 
 
     public Tuple<Integer, Integer> getSurviveIncrement()
     {
-        return new Tuple<>(this.surviveIncrementMin.get(), this.surviveIncrementMax.get() + 1);
+        return new Tuple<>(this.surviveIncrementMin.get(), this.surviveIncrementMax.get());
     }
 
 
     public Tuple<Integer, Integer> getDeathIncrement()
     {
-        return new Tuple<>(this.deathIncrementMin.get(), this.deathIncrementMax.get() + 1);
+        return new Tuple<>(this.deathIncrementMin.get(), this.deathIncrementMax.get());
     }
 
 

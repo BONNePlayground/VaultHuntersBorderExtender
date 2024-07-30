@@ -40,11 +40,13 @@ public class Util
 
         if (incrementRange.getA() > incrementRange.getB())
         {
-            increment = player.getLevel().random.nextInt(incrementRange.getB(), incrementRange.getA());
+            increment = player.getLevel().random.nextInt(incrementRange.getA() - incrementRange.getB() + 1) +
+                incrementRange.getB();
         }
         else if (incrementRange.getA() < incrementRange.getB())
         {
-            increment = player.getLevel().random.nextInt(incrementRange.getA(), incrementRange.getB());
+            increment = player.getLevel().random.nextInt(incrementRange.getB() - incrementRange.getA() + 1) +
+                incrementRange.getA();
         }
         else
         {
