@@ -2,6 +2,7 @@ package lv.id.bonne.borderextender.configs;
 
 
 
+import net.minecraft.util.Tuple;
 import net.minecraftforge.common.ForgeConfigSpec;
 
 
@@ -21,17 +22,34 @@ public class Configuration
             comment("The maximal world border size.").
             define("border_size", 20000);
 
-        this.completeIncrement = builder.
-            comment("The increment of border per completed vault.").
-            define("complete_increment", 5);
+        this.onlyCrystalOwner = builder.
+            comment("Indicates if border should be increased only by crystal owner.").
+            comment("Setting it to false will increase world border by everyone who exits vault.").
+            define("only_owner", true);
 
-        this.surviveIncrement = builder.
+        this.completeIncrementMin = builder.
+            comment("The minimal increment of border per completed vault.").
+            define("complete_increment_min", 5);
+
+        this.completeIncrementMax = builder.
+            comment("The maximal increment of border per completed vault.").
+            define("complete_increment_max", 5);
+
+        this.surviveIncrementMin = builder.
             comment("The increment of border per survived vault.").
-            define("survive_increment", 1);
+            define("survive_increment_min", 1);
 
-        this.deathIncrement = builder.
+        this.surviveIncrementMax = builder.
+            comment("The increment of border per survived vault.").
+            define("survive_increment_max", 1);
+
+        this.deathIncrementMin = builder.
             comment("The increment of border per death in vault.").
-            define("death_increment", 0);
+            define("death_increment_min", 0);
+
+        this.deathIncrementMax = builder.
+            comment("The increment of border per death in vault.").
+            define("death_increment_max", 0);
 
         Configuration.GENERAL_SPEC = builder.build();
     }
@@ -48,21 +66,27 @@ public class Configuration
     }
 
 
-    public int getCompleteIncrement()
+    public boolean getOnlyOwner()
     {
-        return this.completeIncrement.get();
+        return this.onlyCrystalOwner.get();
     }
 
 
-    public int getSurviveIncrement()
+    public Tuple<Integer, Integer> getCompleteIncrement()
     {
-        return this.surviveIncrement.get();
+        return new Tuple<>(this.completeIncrementMin.get(), this.completeIncrementMax.get() + 1);
     }
 
 
-    public int getDeathIncrement()
+    public Tuple<Integer, Integer> getSurviveIncrement()
     {
-        return this.deathIncrement.get();
+        return new Tuple<>(this.surviveIncrementMin.get(), this.surviveIncrementMax.get() + 1);
+    }
+
+
+    public Tuple<Integer, Integer> getDeathIncrement()
+    {
+        return new Tuple<>(this.deathIncrementMin.get(), this.deathIncrementMax.get() + 1);
     }
 
 
@@ -78,17 +102,37 @@ public class Configuration
     /**
      * The config value for listing positive modifiers
      */
-    private final ForgeConfigSpec.ConfigValue<Integer> completeIncrement;
+    private final ForgeConfigSpec.ConfigValue<Integer> completeIncrementMin;
 
     /**
      * The config value for listing positive modifiers
      */
-    private final ForgeConfigSpec.ConfigValue<Integer> surviveIncrement;
+    private final ForgeConfigSpec.ConfigValue<Integer> completeIncrementMax;
 
     /**
      * The config value for listing positive modifiers
      */
-    private final ForgeConfigSpec.ConfigValue<Integer> deathIncrement;
+    private final ForgeConfigSpec.ConfigValue<Integer> surviveIncrementMin;
+
+    /**
+     * The config value for listing positive modifiers
+     */
+    private final ForgeConfigSpec.ConfigValue<Integer> surviveIncrementMax;
+
+    /**
+     * The config value for listing positive modifiers
+     */
+    private final ForgeConfigSpec.ConfigValue<Integer> deathIncrementMin;
+
+    /**
+     * The config value for listing positive modifiers
+     */
+    private final ForgeConfigSpec.ConfigValue<Integer> deathIncrementMax;
+
+    /**
+     * The config value for listing positive modifiers
+     */
+    private final ForgeConfigSpec.ConfigValue<Boolean> onlyCrystalOwner;
 
     /**
      * The general config spec.

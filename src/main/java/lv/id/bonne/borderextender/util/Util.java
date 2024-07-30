@@ -18,6 +18,7 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.*;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.util.Tuple;
 import net.minecraft.world.level.border.WorldBorder;
 
 
@@ -28,12 +29,27 @@ public class Util
         WorldBorder worldBorder = player.getServer().overworld().getWorldBorder();
         double currentSize = worldBorder.getSize();
 
-        int increment = switch (completion)
+        Tuple<Integer, Integer> incrementRange = switch (completion)
         {
             case BAILED -> BorderExtendMod.CONFIGURATION.getSurviveIncrement();
             case FAILED -> BorderExtendMod.CONFIGURATION.getDeathIncrement();
             case COMPLETED -> BorderExtendMod.CONFIGURATION.getCompleteIncrement();
         };
+
+        final int increment;
+
+        if (incrementRange.getA() > incrementRange.getB())
+        {
+            increment = player.getLevel().random.nextInt(incrementRange.getB(), incrementRange.getA());
+        }
+        else if (incrementRange.getA() < incrementRange.getB())
+        {
+            increment = player.getLevel().random.nextInt(incrementRange.getA(), incrementRange.getB());
+        }
+        else
+        {
+            increment = incrementRange.getA();
+        }
 
         double newSize = currentSize + increment;
 

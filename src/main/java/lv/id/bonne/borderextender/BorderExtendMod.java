@@ -62,7 +62,7 @@ public class BorderExtendMod
         }
 
         vault.ifPresent(Vault.OWNER, ownerId -> {
-            if (!event.getPlayer().getUUID().equals(ownerId))
+            if (!event.getPlayer().getUUID().equals(ownerId) && CONFIGURATION.getOnlyOwner())
             {
                 return;
             }
