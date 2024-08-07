@@ -1,0 +1,11 @@
+{
+  "package": "lv.id.bonne.borderextender.mixin",
+  "refmap": "mixins.borderextendermod.refmap.json",
+  "minVersion": "0.8",
+  "compatibilityLevel": "JAVA_17",
+  "required": true,
+  "mixins": [
+    "MixinVirtualWorlds"
+  ],
+  "client": []
+}
