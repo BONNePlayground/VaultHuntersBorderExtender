@@ -28,15 +28,8 @@ assignees: ''
 
 ### Environment
 
-##### BentoBox Version (Mandatory)
+##### Mod Version (Mandatory)
 <!-- /!\ Leaving this section blank will result in your ticket being closed without further explanation. -->
-<!-- Paste the output of `/bentobox version` in the code block below (replace the underscores). Do not provide an image. -->
-```
-_______
-```
-
-#### Plugins (Optional)
-<!-- Please paste the `/plugins` output inside the code block below (remove the underscores). Do not provide an image. -->
 ```
 _______
 ```
