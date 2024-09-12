@@ -16,11 +16,13 @@ import net.minecraft.world.level.border.BorderChangeListener;
 import net.minecraft.world.level.border.WorldBorder;
 
 
-@Mixin(value = VirtualWorlds.class, remap = false)
+@Mixin(value = VirtualWorlds.class)
 public class MixinVirtualWorlds
 {
     @Redirect(method = "load(Liskallia/vault/core/world/storage/VirtualWorld;)Liskallia/vault/core/world/storage/VirtualWorld;",
-        at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/border/WorldBorder;addListener(Lnet/minecraft/world/level/border/BorderChangeListener;)V"))
+        at = @At(value = "INVOKE",
+            target = "Lnet/minecraft/world/level/border/WorldBorder;addListener(Lnet/minecraft/world/level/border/BorderChangeListener;)V"),
+        remap = false)
     private static void skipListener(WorldBorder instance, BorderChangeListener p_61930_)
     {
     }
