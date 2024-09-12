@@ -1,0 +1,12 @@
+{
+  "block": "block",
+  "blocks":  "blocks",
+  "increment.valera": "%s, your bravery has expanded the realm, the world grows by %s %s in your honor!",
+  "increment.tenos": "%s, thanks to your courage, the world now stretches %s %s further!",
+  "increment.wendarr": "%s, in recognition of your efforts, the world expands by %s %s!",
+  "increment.idona": "%s, your achievements grant you more land, the border grows by %s %s!",
+  "decrement.valera": "%s, your failure has shrunk the world, the border retracts by %s %s!",
+  "decrement.tenos": "%s, the realm diminishes by block as a consequence of your defeat %s %s as a consequence of your defeat!",
+  "decrement.wendarr": "%s, your missteps have cost you dearly the world shrinks by %s %s!",
+  "decrement.idona": "%s, your setback has taken its toll, the world contracts by %s %s!"
+}

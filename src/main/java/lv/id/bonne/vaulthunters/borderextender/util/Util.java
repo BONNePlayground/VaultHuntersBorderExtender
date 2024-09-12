@@ -65,35 +65,17 @@ public class Util
 
         worldBorder.lerpSizeBetween(currentSize, newSize, overTime);
 
-        String s = increment == 1 ? "" : "s";
+        String s = increment == 1 || increment == -1 ? "" : "s";
 
         if (newSize > currentSize)
         {
             Util.getRandom(Arrays.stream(VaultGod.values()).toList()).ifPresent(god ->
             {
-                Component component = switch (god)
-                {
-                    case VELARA -> new TextComponent("").
-                        append(player.getDisplayName().copy().withStyle(ChatFormatting.BLUE)).
-                        append(new TextComponent(", your bravery has expanded the realm, the world grows by ").withStyle(ChatFormatting.WHITE)).
-                        append(new TextComponent(String.valueOf(increment)).withStyle(ChatFormatting.DARK_GREEN)).
-                        append(new TextComponent(" block" + s + " in your honor!").withStyle(ChatFormatting.WHITE));
-                    case TENOS -> new TextComponent("").
-                        append(player.getDisplayName().copy().withStyle(ChatFormatting.BLUE)).
-                        append(new TextComponent(", thanks to your courage, the world now stretches ").withStyle(ChatFormatting.WHITE)).
-                        append(new TextComponent(String.valueOf(increment)).withStyle(ChatFormatting.DARK_GREEN)).
-                        append(new TextComponent(" block" + s + " further.").withStyle(ChatFormatting.WHITE));
-                    case WENDARR -> new TextComponent("").
-                        append(player.getDisplayName().copy().withStyle(ChatFormatting.BLUE)).
-                        append(new TextComponent(", in recognition of your efforts, the world expands by ").withStyle(ChatFormatting.WHITE)).
-                        append(new TextComponent(String.valueOf(increment)).withStyle(ChatFormatting.DARK_GREEN)).
-                        append(new TextComponent(" block" + s + "!").withStyle(ChatFormatting.WHITE));
-                    case IDONA -> new TextComponent("").
-                        append(player.getDisplayName().copy().withStyle(ChatFormatting.BLUE)).
-                        append(new TextComponent(", your achievements grant you more land, the border grows by ").withStyle(ChatFormatting.WHITE)).
-                        append(new TextComponent(String.valueOf(increment)).withStyle(ChatFormatting.DARK_GREEN)).
-                        append(new TextComponent(" block" + s + "!").withStyle(ChatFormatting.WHITE));
-                };
+                Component component = new TranslatableComponent("increment." + god.toString().toLowerCase(),
+                    player.getDisplayName().copy().withStyle(ChatFormatting.BLUE),
+                    new TextComponent(String.valueOf(increment)).withStyle(ChatFormatting.DARK_GREEN),
+                    new TranslatableComponent("block" + s)).
+                    withStyle(ChatFormatting.WHITE);
 
                 Util.sendGodMessageToAll(player.getServer(), component, god);
             });
@@ -102,29 +84,11 @@ public class Util
         {
             Util.getRandom(Arrays.stream(VaultGod.values()).toList()).ifPresent(god ->
             {
-                Component component = switch (god)
-                {
-                    case VELARA -> new TextComponent("").
-                        append(player.getDisplayName().copy().withStyle(ChatFormatting.BLUE)).
-                        append(new TextComponent(", your failure has shrunk the world, the border retracts by ").withStyle(ChatFormatting.WHITE)).
-                        append(new TextComponent(String.valueOf(-increment)).withStyle(ChatFormatting.DARK_RED)).
-                        append(new TextComponent(" block" + s + "!").withStyle(ChatFormatting.WHITE));
-                    case TENOS -> new TextComponent("").
-                        append(player.getDisplayName().copy().withStyle(ChatFormatting.BLUE)).
-                        append(new TextComponent(", the realm diminishes by ").withStyle(ChatFormatting.WHITE)).
-                        append(new TextComponent(String.valueOf(-increment)).withStyle(ChatFormatting.DARK_RED)).
-                        append(new TextComponent(" block" + s + " as a consequence of your defeat.").withStyle(ChatFormatting.WHITE));
-                    case WENDARR -> new TextComponent("").
-                        append(player.getDisplayName().copy().withStyle(ChatFormatting.BLUE)).
-                        append(new TextComponent(", your missteps have cost you dearly the world shrinks by ").withStyle(ChatFormatting.WHITE)).
-                        append(new TextComponent(String.valueOf(-increment)).withStyle(ChatFormatting.DARK_RED)).
-                        append(new TextComponent(" block" + s + "!").withStyle(ChatFormatting.WHITE));
-                    case IDONA -> new TextComponent("").
-                        append(player.getDisplayName().copy().withStyle(ChatFormatting.BLUE)).
-                        append(new TextComponent(", your setback has taken its toll, the world contracts by ").withStyle(ChatFormatting.WHITE)).
-                        append(new TextComponent(String.valueOf(-increment)).withStyle(ChatFormatting.DARK_RED)).
-                        append(new TextComponent(" block" + s + "!").withStyle(ChatFormatting.WHITE));
-                };
+                Component component = new TranslatableComponent("decrement." + god.toString().toLowerCase(),
+                    player.getDisplayName().copy().withStyle(ChatFormatting.BLUE),
+                    new TextComponent(String.valueOf(-increment)).withStyle(ChatFormatting.DARK_RED),
+                    new TranslatableComponent("block" + s)).
+                    withStyle(ChatFormatting.WHITE);
 
                 Util.sendGodMessageToAll(player.getServer(), component, god);
             });
