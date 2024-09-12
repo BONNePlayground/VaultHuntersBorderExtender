@@ -4,7 +4,7 @@
 //
 
 
-package lv.id.bonne.borderextender.mixin;
+package lv.id.bonne.vaulthunters.borderextender.mixin;
 
 
 import org.spongepowered.asm.mixin.Mixin;

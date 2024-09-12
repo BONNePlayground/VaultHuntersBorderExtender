@@ -1,4 +1,4 @@
-package lv.id.bonne.borderextender.configs;
+package lv.id.bonne.vaulthunters.borderextender.configs;
 
 
 

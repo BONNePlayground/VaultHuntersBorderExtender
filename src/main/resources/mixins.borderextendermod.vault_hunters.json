@@ -1,5 +1,5 @@
 {
-  "package": "lv.id.bonne.borderextender.mixin",
+  "package": "lv.id.bonne.vaulthunters.borderextender.mixin",
   "refmap": "mixins.borderextendermod.refmap.json",
   "minVersion": "0.8",
   "compatibilityLevel": "JAVA_17",

@@ -4,7 +4,7 @@
 //
 
 
-package lv.id.bonne.borderextender.util;
+package lv.id.bonne.vaulthunters.borderextender.util;
 
 
 import java.util.Arrays;
@@ -13,7 +13,7 @@ import java.util.Optional;
 
 import iskallia.vault.core.vault.influence.VaultGod;
 import iskallia.vault.core.vault.player.Completion;
-import lv.id.bonne.borderextender.BorderExtendMod;
+import lv.id.bonne.vaulthunters.borderextender.BorderExtendMod;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.*;
 import net.minecraft.server.MinecraftServer;

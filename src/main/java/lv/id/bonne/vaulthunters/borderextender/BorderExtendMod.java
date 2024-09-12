@@ -1,4 +1,4 @@
-package lv.id.bonne.borderextender;
+package lv.id.bonne.vaulthunters.borderextender;
 
 
 import com.mojang.logging.LogUtils;
@@ -6,8 +6,8 @@ import com.mojang.logging.LogUtils;
 import iskallia.vault.core.vault.Vault;
 import iskallia.vault.core.vault.stat.StatCollector;
 import iskallia.vault.event.event.VaultLeaveEvent;
-import lv.id.bonne.borderextender.configs.Configuration;
-import lv.id.bonne.borderextender.util.Util;
+import lv.id.bonne.vaulthunters.borderextender.configs.Configuration;
+import lv.id.bonne.vaulthunters.borderextender.util.Util;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModLoadingContext;
